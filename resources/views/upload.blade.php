@@ -5,12 +5,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Upload PDF') }}
-        </h2>
-    </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-3">
@@ -29,21 +23,26 @@
 					      {{ csrf_field() }}
 					
                 <div class="form-group">
-						      <b>Judul Buku *(wajib diisi)</b>
+						      <b>Judul Dokumen</b> 
+                  <b class="text-danger">*</b>
                   <input type="text" class="form-control" name="judul">
 					      </div>
 
                 <div class="form-group">
-						      <b>Keterangan *(wajib diisi)</b>
+						      <b>Keterangan</b>
+                  <b class="text-danger">*</b>
 						      <textarea class="form-control" name="keterangan"></textarea>
 					      </div>
 
                 <div class="form-group">
-						      <b>File PDF *(wajib diisi)</b><br/>
+						      <b>Dokumen PDF</b>
+                  <b class="text-danger">*</b><br/>
 						      <input type="file" name="file">
                   <br/>
                   <br/>
-                  <b>Gambar (PNG, JPG, atau JPEG) *(wajib diisi)</b><br/>
+                  <b>Gambar Sampul (PNG, JPG, atau JPEG)</b>
+                  <b class="text-danger">*</b>
+                  <br/>
 						      <input type="file" name="gambar">
                 </div>
                 <br/>

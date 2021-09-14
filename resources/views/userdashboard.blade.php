@@ -4,23 +4,31 @@
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
+<style type="text/css">
+    .left{text-align:left;}
+    .center{text-align:center;}
+    .right{text-align:right;}
+    .justify{text-align:justify;}
+</style>
 
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Daftar Buku') }}
-            <span style="float: right">
-            <form class="d-flex" action="/search_" method="GET" role="search">
-                <input class="form-control me-2"  type="text" name="search_user" placeholder="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </span>
-        </h2>
-    </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-2">
+                
+                @forelse($daftarbuku as $df)
+                    @empty
+                    <div class="mt-8 text-2xl">
+                        <p class="center">
+                            Hasil pencaharian untuk kata '<strong>{{request()->query('search_user')}}</strong>' tidak tersedia
+                        <p>
+                    </div>
+                    <div class="mt-6 text-gray-500">
+                        <p class="center">Silahkan menggunakan kata kunci lain untuk mencari dokumen.<p>
+                    </div>
+                @endforelse
+
                 @if (session('success_hapus'))
                     <h6 class="alert alert-success alert-dismissible"><strong>{{ session('success_hapus') }}</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

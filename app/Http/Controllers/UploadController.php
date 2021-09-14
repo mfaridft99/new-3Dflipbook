@@ -24,10 +24,18 @@ class UploadController extends Controller
         $daftarbuku = daftarbuku::paginate(15);
 		return view('admindashboard', compact('daftarbuku'));
     }
+	public function search(Request $request){
+		//mencari data
+		$search = $request->get('search');
+		$daftarbuku = daftarbuku::where('judul','LIKE','%'.$search.'%')->orWhere('keterangan','LIKE','%'.$search.'%')->paginate(15);
+		// ['keterangan','LIKE','%'.$search.'%']
+		// menampilkan hasil pencarian
+		return view('admindashboard', compact('daftarbuku'));
+	}
 	public function search_user(Request $request){
 		//mencari data
 		$search = $request->get('search_user');
-		$daftarbuku = daftarbuku::where('judul','LIKE','%'.$search.'%')->paginate(15);
+		$daftarbuku = daftarbuku::where('judul','LIKE','%'.$search.'%')->orWhere('keterangan','LIKE','%'.$search.'%')->paginate(15);
 		
 		// menampilkan hasil pencarian
 		return view('userdashboard', compact('daftarbuku'));
@@ -87,15 +95,6 @@ class UploadController extends Controller
 	public function download($file){
 		// mendownload file
 		return response()->download('storage/'.$file);
-	}
-
-	public function search(Request $request){
-		//mencari data
-		$search = $request->get('search');
-		$daftarbuku = daftarbuku::where('judul','LIKE','%'.$search.'%')->paginate(15);
-		
-		// menampilkan hasil pencarian
-		return view('admindashboard', compact('daftarbuku'));
 	}
 
 	public function edit($id){

@@ -12,22 +12,31 @@
 </style>
 
 <x-app-layout>
+    
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-            <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
-    <div class="mt-8 text-2xl">
-        <p class="center"> Selamat datang di Arsip PDF Universitas Pertamina!<p>
-    </div>
+                <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
+                    @if (auth()->user()->level == 'atasan')
+                    <div class="mt-8 text-2xl">
+                        <p class="center"> Selamat datang di Halaman Atasan Arsip Dokumen Universitas Pertamina!<p>
+                    </div>
 
-    <div class="mt-6 text-gray-500">
-    @if (auth()->user()->level == 'atasan')
-        <p class="center">Tempat untuk menyimpan, membaca, dan mengumpulkan arsip-arsip PDF penting Universitas Pertamina.
-        Untuk melihat daftar buku, silahkan tekan "Daftar Buku" di pojok kiri atas.<p>
-    @else
-        <p class="center">Tempat untuk membaca arsip-arsip PDF penting Universitas Pertamina.
-        Untuk melihat daftar buku, silahkan tekan "Daftar Buku" di pojok kiri atas.<p>
+                    <div class="mt-6 text-gray-500">
+                        <p class="center">Tempat untuk menyimpan, membaca, dan mengumpulkan dokumen Universitas Pertamina.
+                            Untuk melihat daftar dokumen, silahkan tekan "Daftar Dokumen" di pojok kiri atas.<p>
+                    </div>
+                    @elseif (auth()->user()->level == 'staff')
+                    <div class="mt-8 text-2xl">
+                        <p class="center"> Selamat datang di Halaman Staff Arsip Dokumen Universitas Pertamina!<p>
+                    </div>
+
+                    <div class="mt-6 text-gray-500">
+                    <p class="center">Tempat untuk membaca dokumen Universitas Pertamina.
+                    Untuk melihat daftar dokumen, silahkan tekan "Daftar Dokumen" di pojok kiri atas.<p>
+
+                    </div>
     @endif
-    </div>
+    
 </div>
 </x-app-layout>

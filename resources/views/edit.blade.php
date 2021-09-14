@@ -33,7 +33,7 @@
                   @method('PUT')
 
                   <div class="form-group">
-						        <b>Judul Buku</b>
+						        <b>Judul Dokumen</b>
                     <input type="text" class="form-control" name="judul" value="{{ $df->judul }}">
 					        </div>
 
@@ -43,13 +43,13 @@
 					        </div>
 
                   <div class="form-group">
-                    <b>File PDF</b><br/>
+                    <b>Dokumen PDF</b><br/>
 					          <input type="file"  name="file" value="{{ $df->file }}">
                   </div>
 
                   <div class="form-group">
                     <br/>
-                    <b>Gambar (PNG, JPG, atau JPEG)</b><br/>
+                    <b>Gambar Sampul (PNG, JPG, atau JPEG)</b><br/>
 						        <input type="file" name="gambar" value="{{ $df->gambar }}">
                   </div>
                   <br/>
