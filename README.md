@@ -1,3 +1,11 @@
+# new-3Dflipbook
+tampilan 3d flipbook terbaru (Laravel Jetstream + bootstrap)
+
+Tips Step:
+1. extract zip di folder htdocs xampp, lalu buka git bash di folder yang telah di extract
+2. lakukan perintah "composer install"
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
