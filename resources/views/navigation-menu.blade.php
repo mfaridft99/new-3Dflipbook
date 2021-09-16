@@ -83,14 +83,22 @@
                 @endif
                 <div class="ml-3 mt-3 relative">
                     @if (auth()->user()->level == 'atasan')
-                        <form class="d-flex px-3 py-2" action="/search" method="GET" role="search">
+                        <form class="d-flex" action="/search" method="GET" role="search">
                             <input class="form-control-sm me-2"  type="text" name="search" placeholder="Cari" value="{{request()->query('search')}}">
-                            <button class="btn btn-sm btn-outline-success" type="submit">Search</button>
+                            <button class="btn btn-sm btn-outline-success" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </button>
                         </form>
                         @elseif (auth()->user()->level == 'staff')
                         <form class="d-flex" action="/search_" method="GET" role="search">
                             <input class="form-control-sm me-2"  type="text" name="search_user" placeholder="Cari" value="{{request()->query('search_user')}}">
-                            <button class="btn btn-sm btn-outline-success" type="submit">Search</button>
+                            <button class="btn btn-sm btn-outline-success" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </button>
                         </form>
                     @endif
                 </div>
@@ -107,7 +115,7 @@
                             @else
                                 <span class="inline-flex rounded-md">
                                     <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
-                                        {{ Auth::user()->name }}
+                                        {{ Auth::user()->name }} ({{ Auth::user()->level }})
 
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />

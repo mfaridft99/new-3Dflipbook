@@ -8,6 +8,8 @@ use App\Models\daftarbuku;
 
 use Illuminate\Support\Facades\File;
 
+Use Alert;
+
 class UploadController extends Controller
 {
     public function welcome(){
@@ -78,8 +80,8 @@ class UploadController extends Controller
 			'file' => $nama_file,
 			'gambar' => $nama_gambar
 		]);
-
-		return redirect()->back()->with('success', 'Form telah berhasil diunggah!');
+		
+		return redirect("/Admindashboard")->with('success', 'Form telah berhasil diunggah!');
 		
 	}
 	public function hapus($id){
@@ -89,8 +91,7 @@ class UploadController extends Controller
 	
 		// hapus data
 		daftarbuku::where('id',$id)->delete();
-	
-		return redirect()->back()->with('success_hapus', 'Data telah behasil dihapus!');
+		return redirect()->back()->with('success', 'Data berhasil dihapus!');
 	}
 	public function download($file){
 		// mendownload file
@@ -142,8 +143,7 @@ class UploadController extends Controller
 		}
 
 		$daftarbuku-> update();
-
-		return redirect()->back()->with('success', 'Telah Berhasil Update!');
+		return redirect("/Admindashboard")->with('success', 'Data telah berhasil diubah!');
 		
 	}
 }
