@@ -11,7 +11,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                        <img src="logo/LogoUP_png.png" style="width:70px;height:50px" />
+                    <x-jet-application-mark class="block h-9 w-auto" />
                 </div>
 
                 <!-- Navigation Links -->
